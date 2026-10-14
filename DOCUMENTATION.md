@@ -109,7 +109,7 @@ Only one package is installed from npm: `express`. Everything else comes with No
 ## 4. Project structure
 
 ```
-Developer task/
+Plant-Store/
 ├── README.md                  short overview and quick start
 ├── DOCUMENTATION.md           this file
 ├── ANSWERS.md                 answers to the task's questions (keep headings)
@@ -454,7 +454,7 @@ How part 1's tests work: they start the real `store-api.js` with its random slow
 
 This is how the live site was set up.
 
-1. **Push the code to GitHub** (repository `Vuday3336/PlantStore`, branch `main`).
+1. **Push the code to GitHub** (repository `Vuday3336/Plant-Store`, branch `main`).
 2. **Open the blueprint link** while logged in to Render: https://render.com/deploy?repo=https://github.com/Vuday3336/Plant-Store
 3. **Fill in the form:**
    - Blueprint Name: `plant-store`
