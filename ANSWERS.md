@@ -10,7 +10,7 @@ Name: Vardhineedi Uday Kiran
 
 Live link: https://plant-help-desk-yyhh.onrender.com (team page: https://plant-help-desk-yyhh.onrender.com/team, store API: https://plant-store-api-yyhh.onrender.com)
 
-Video link: <!-- link to the screen recording -->
+Video link: https://drive.google.com/file/d/1WSWiqGdRhpjQ44ctKWhj4Lo-8SkQEovz/view?usp=sharing
 
 Team page login: user `team`, password: `plant-2026`
 

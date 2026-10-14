@@ -38,7 +38,8 @@ Short answers to the task's own questions are in [ANSWERS.md](ANSWERS.md). This 
 | Store API | https://plant-store-api-yyhh.onrender.com (needs the `x-api-key` header, see below) |
 | Store API emails list | `curl.exe -H "x-api-key: test-key" https://plant-store-api-yyhh.onrender.com/emails` |
 | GitHub repository | https://github.com/Vuday3336/Plant-Store |
-| Render dashboard | https://dashboard.render.com (blueprint `plant-store`, services `plant-store-api` and `plant-help-desk`) |
+| Demo video | https://drive.google.com/file/d/1WSWiqGdRhpjQ44ctKWhj4Lo-8SkQEovz/view?usp=sharing |
+| Render dashboard | https://dashboard.render.com (blueprint `Plants-Store`, services `plant-store-api-yyhh` and `plant-help-desk-yyhh`) |
 
 ### Logins and keys
 
@@ -541,10 +542,10 @@ Upload the video (YouTube unlisted, Google Drive or Loom) and put the link in AN
 
 ## 14. Submission checklist
 
-- [ ] ANSWERS.md top filled: Name, Live link (done), Video link
-- [ ] Video recorded with the six steps in section 12, uploaded, and the link added
-- [ ] All tests pass (section 9)
-- [ ] Changes committed and pushed: `git commit -am "..."` then `git push`
+- [x] ANSWERS.md top filled: Name, Live link, Video link, team login, hours
+- [x] Video recorded with the six steps in section 12, uploaded, and the link added
+- [x] All tests pass (section 9)
+- [x] Changes committed and pushed: `git commit -am "..."` then `git push`
 - [ ] GitHub repository set to **Private** (Settings → Change visibility) and the reviewer added as a collaborator
 - [ ] Render services left running until the review is finished
 - [ ] Send: the repository link (or the zip including the hidden `.git` folder), the live link and the video link
