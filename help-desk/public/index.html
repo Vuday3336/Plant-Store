@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where is my order? · Plant store help</title>
+  <link rel="stylesheet" href="/style.css?v=2">
+  <script src="/customer.js?v=2" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the form</a>
+  <header class="top">
+    <div class="wrap">
+      <span class="brand" aria-hidden="true">🌱</span>
+      <span class="brand-name">Plant store help</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Where is my order?</h1>
+      <p class="lead">Enter your order number and the phone number or email you used when you ordered. We show you where it is right away.</p>
+    </div>
+  </section>
+
+  <main id="main" class="wrap">
+
+    <form id="lookup-form" class="card" novalidate>
+      <div class="field">
+        <label for="order-number">Order number</label>
+        <input id="order-number" name="order_number" type="text" autocomplete="off" autocapitalize="characters"
+               spellcheck="false" placeholder="ORD-1001" aria-describedby="order-number-hint" required>
+        <p id="order-number-hint" class="hint">You can find it in your order confirmation email.</p>
+      </div>
+      <div class="field">
+        <label for="contact">Phone or email on the order</label>
+        <input id="contact" name="contact" type="text" autocomplete="email" spellcheck="false"
+               placeholder="98765 43210 or you@example.com" required>
+      </div>
+      <button id="lookup" type="submit">Check my order</button>
+      <div id="result" class="result" role="status" aria-live="polite"></div>
+    </form>
+
+    <section class="card" aria-labelledby="report-title">
+      <h2 id="report-title"><span aria-hidden="true">💬 </span>Something wrong with your order?</h2>
+      <p class="hint">Tell us what happened. We use the order number and phone or email above, and email you a confirmation.</p>
+      <form id="report-form" novalidate>
+        <div class="field">
+          <label for="message">What went wrong?</label>
+          <textarea id="message" name="message" rows="5" maxlength="2000"
+                    aria-describedby="message-count" placeholder="For example: the pot arrived broken."></textarea>
+          <p id="message-count" class="hint count" aria-live="off">0 / 2000</p>
+        </div>
+        <button id="send" type="submit">Send to our team</button>
+        <div id="send-result" class="result" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+  <footer class="foot wrap">
+    <p>Your phone number and email are only used to check that the order is yours.</p>
+  </footer>
+</body>
+</html>

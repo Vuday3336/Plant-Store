@@ -1,0 +1,56 @@
+# Runs the store API and the help desk side by side on one server.
+#   TAG=v1.2.0 docker compose up -d --build     release
+#   TAG=v1.1.0 docker compose up -d             go back (image is still there)
+# The database lives in the helpdesk-data volume, so it survives both.
+services:
+  store-api:
+    image: plant-helpdesk:${TAG:-latest}
+    build: .
+    command: ["node", "store-api.js"]
+    environment:
+      PORT: "4000"
+    ports:
+      - "4000:4000"          # public so the reviewer can open /emails
+    restart: unless-stopped
+
+  helpdesk:
+    image: plant-helpdesk:${TAG:-latest}
+    build: .
+    environment:
+      PORT: "3000"
+      STORE_API_URL: http://store-api:4000
+      DB_FILE: /data/helpdesk.db
+      TEAM_USER: ${TEAM_USER:-team}
+      TEAM_PASSWORD: ${TEAM_PASSWORD:-plants-2026}
+      TRUST_PROXY: "1"
+    volumes:
+      - helpdesk-data:/data
+    ports:
+      - "3000:3000"
+    depends_on:
+      - store-api
+    restart: unless-stopped
+    stop_grace_period: 20s
+
+  # a second copy on the same database, for requirement 7:
+  #   docker compose --profile two-copies up -d
+  helpdesk-2:
+    profiles: ["two-copies"]
+    image: plant-helpdesk:${TAG:-latest}
+    environment:
+      PORT: "3000"
+      STORE_API_URL: http://store-api:4000
+      DB_FILE: /data/helpdesk.db
+      TEAM_USER: ${TEAM_USER:-team}
+      TEAM_PASSWORD: ${TEAM_PASSWORD:-plants-2026}
+      TRUST_PROXY: "1"
+    volumes:
+      - helpdesk-data:/data
+    ports:
+      - "3001:3000"
+    depends_on:
+      - store-api
+    restart: unless-stopped
+
+volumes:
+  helpdesk-data:

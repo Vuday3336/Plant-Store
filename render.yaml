@@ -1,0 +1,39 @@
+# Render blueprint: New > Blueprint > pick this repo.
+# Both services fit the free plan. Free instances have no disk, so the SQLite
+# file is lost on each redeploy or restart; for real use switch the help desk
+# to a paid plan and add a disk (mount it and point DB_FILE at it).
+services:
+  - type: web
+    name: plant-store-api
+    runtime: node
+    rootDir: help-desk
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node store-api.js
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+
+  - type: web
+    name: plant-help-desk
+    runtime: node
+    rootDir: help-desk
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: STORE_API_URL
+        sync: false   # paste the plant-store-api URL, e.g. https://plant-store-api.onrender.com
+      - key: DB_FILE
+        value: /opt/render/project/src/help-desk/data/helpdesk.db
+      - key: TRUST_PROXY
+        value: "1"
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: TEAM_USER
+        value: team
+      - key: TEAM_PASSWORD
+        sync: false   # set it in the Render dashboard

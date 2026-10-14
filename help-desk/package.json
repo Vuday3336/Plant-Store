@@ -1,0 +1,19 @@
+{
+  "name": "plant-store-help-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Order help desk: customers check their order and report problems, the team resolves them.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "store-api": "node store-api.js",
+    "dev": "node scripts/dev.js",
+    "test": "node --test --test-concurrency=1 \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,88 @@
+Parcels: 3267   returned: 191   cost of returns in 60 days: Rs 75,910   average per return: Rs 397
+
+By reason of the last failed attempt
+                               parcels returned    rate        cost
+  refused                          77       69  89.6%   Rs 27,439
+  wrong_address                    87       54  62.1%   Rs 22,569
+  not_home                        126       54  42.9%   Rs 20,500
+  phone_off                        39       14  35.9%    Rs 5,402
+  (no failure)                   2938        0   0.0%        Rs 0
+
+By payment
+                               parcels returned    rate        cost
+  cod                             984       99  10.1%   Rs 39,222
+  prepaid                        2283       92   4.0%   Rs 36,688
+
+Payment x reason
+                               parcels returned    rate        cost
+  ('cod', 'refused')               70       62  88.6%   Rs 24,343
+  ('prepaid', 'not_home')          80       40  50.0%   Rs 15,238
+  ('prepaid', 'wrong_address')     57       36  63.2%   Rs 14,599
+  ('cod', 'wrong_address')         30       18  60.0%    Rs 7,970
+  ('cod', 'not_home')              46       14  30.4%    Rs 5,262
+  ('prepaid', 'phone_off')         21        9  42.9%    Rs 3,755
+  ('prepaid', 'refused')            7        7 100.0%    Rs 3,096
+  ('cod', 'phone_off')             18        5  27.8%    Rs 1,647
+  ('prepaid', '-')               2118        0   0.0%        Rs 0
+  ('cod', '-')                    820        0   0.0%        Rs 0
+
+Failed at least once: was the customer contacted?
+                               parcels returned    rate        cost
+  ('refused', 'contacted=no')      77       69  89.6%   Rs 27,439
+  ('wrong_address', 'contacted=no')     55       48  87.3%   Rs 20,212
+  ('not_home', 'contacted=no')     78       43  55.1%   Rs 15,496
+  ('not_home', 'contacted=yes')     48       11  22.9%    Rs 5,004
+  ('phone_off', 'contacted=no')     22       11  50.0%    Rs 4,483
+  ('wrong_address', 'contacted=yes')     32        6  18.8%    Rs 2,357
+  ('phone_off', 'contacted=yes')     17        3  17.6%      Rs 918
+
+By courier
+                               parcels returned    rate        cost
+  BlueLine                       1799       97   5.4%   Rs 37,481
+  QuickDrop                       812       59   7.3%   Rs 24,520
+  PostPlus                        656       35   5.3%   Rs 13,909
+
+North-east (Guwahati, Agartala, Imphal) by courier
+                               parcels returned    rate        cost
+  QuickDrop                        89       22  24.7%   Rs 10,329
+  BlueLine                        225       21   9.3%    Rs 9,337
+  PostPlus                         83        2   2.4%      Rs 848
+
+Rest of India by courier
+                               parcels returned    rate        cost
+  BlueLine                       1574       76   4.8%   Rs 28,144
+  QuickDrop                       723       37   5.1%   Rs 14,191
+  PostPlus                        573       33   5.8%   Rs 13,060
+
+Wrong address failures by courier and region
+                               parcels returned    rate        cost
+  ('QuickDrop', 'NE')              24       17  70.8%    Rs 8,282
+  ('BlueLine', 'rest')             30       16  53.3%    Rs 5,910
+  ('QuickDrop', 'rest')            20       11  55.0%    Rs 4,144
+  ('BlueLine', 'NE')                5        5 100.0%    Rs 2,257
+  ('PostPlus', 'rest')              7        4  57.1%    Rs 1,448
+  ('PostPlus', 'NE')                1        1 100.0%      Rs 529
+
+================ The three changes ================
+
+3. Stop using QuickDrop for the north-east
+   QuickDrop NE: 89 parcels, 22 returned (24.7%), cost Rs 10,329; 17 of them wrong_address
+   BlueLine+PostPlus NE: 308 parcels, 23 returned (7.5%)
+   Same 89 parcels at 7.5% -> 6.6 returns instead of 22. Saves 15.4 x Rs 469 = Rs 7,209
+
+1. Call every customer after the first missed delivery (not_home, wrong_address, phone_off)
+   Finished parcels with one of those failures (QuickDrop NE left out, it is in change 3):
+   contacted:      74 parcels,  17 returned (23.0%)
+   not contacted: 122 parcels,  83 returned (68.0%), cost Rs 31,041
+   If the not-contacted ones came back at the contacted rate: 28.0 returns instead of 83.
+   Saves 55.0 x Rs 374 = Rs 20,559
+   Half of that, if calling is only half as good as the data suggests: Rs 10,280
+
+2. Confirm cash-on-delivery orders before they ship
+   COD: 984 parcels, 70 refused (7.1%), 62 came back, cost Rs 24,343
+   Prepaid: 2283 parcels, 7 refused (0.31%)
+   Without refusals COD and prepaid come back at the same rate: 3.8% vs 3.7%
+   If COD refused as rarely as prepaid: saves Rs 23,158 (upper bound)
+   Planning number, half of the refusals stopped: Rs 12,171
+
+Total return cost Rs 75,910. 1 + 2 (half) + 3 = Rs 39,939 (53%)

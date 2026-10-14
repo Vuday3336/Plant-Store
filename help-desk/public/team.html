@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Tickets · Plant store team</title>
+  <link rel="stylesheet" href="/style.css?v=2">
+  <script src="/team.js?v=2" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the tickets</a>
+  <header class="top">
+    <div class="wrap row">
+      <span class="brand" aria-hidden="true">🌱</span>
+      <span class="brand-name">Plant store team</span>
+      <button id="logout" class="link" type="button" hidden>Log out</button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section id="login-view" hidden aria-labelledby="login-title">
+      <h1 id="login-title">Team login</h1>
+      <form id="login-form" class="card narrow" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button id="login" type="submit">Log in</button>
+        <div id="login-result" class="result" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="tickets-view" hidden aria-labelledby="tickets-title">
+      <div class="row spread">
+        <h1 id="tickets-title">Tickets</h1>
+        <button id="refresh" type="button" class="secondary">Refresh</button>
+      </div>
+      <div id="store-health" class="result" role="status" aria-live="polite"></div>
+
+      <fieldset class="filters">
+        <legend>Show</legend>
+        <label><input type="radio" name="show" value="open" checked> Open</label>
+        <label><input type="radio" name="show" value="resolved"> Resolved</label>
+        <label><input type="radio" name="show" value="all"> All</label>
+      </fieldset>
+
+      <p id="summary" class="hint" aria-live="polite"></p>
+      <ul id="ticket-list" class="tickets" aria-label="Tickets, newest first"></ul>
+    </section>
+  </main>
+
+  <dialog id="ticket-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head">
+      <h2 id="dialog-title">Ticket</h2>
+      <button id="close-dialog" type="button" class="link" aria-label="Close">Close</button>
+    </div>
+    <div id="dialog-body"></div>
+    <div class="dialog-actions">
+      <button id="resolve" type="button">Mark resolved</button>
+      <div id="resolve-result" class="result" role="status" aria-live="polite"></div>
+    </div>
+  </dialog>
+</body>
+</html>
