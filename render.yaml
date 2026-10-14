@@ -26,7 +26,7 @@ services:
       - key: NODE_VERSION
         value: "24"
       - key: STORE_API_URL
-        sync: false   # paste the plant-store-api URL, e.g. https://plant-store-api.onrender.com
+        sync: false   # paste the plant-store-api URL, e.g. https://plant-store-api-yyhh.onrender.com
       - key: DB_FILE
         value: /opt/render/project/src/help-desk/data/helpdesk.db
       - key: TRUST_PROXY

@@ -8,11 +8,11 @@ Keep the headings as they are. Short answers are fine.
 
 Name: Vardhineedi Uday Kiran
 
-Live link: https://plant-help-desk.onrender.com (team page: https://plant-help-desk.onrender.com/team, store API: https://plant-store-api.onrender.com)
+Live link: https://plant-help-desk-yyhh.onrender.com (team page: https://plant-help-desk-yyhh.onrender.com/team, store API: https://plant-store-api-yyhh.onrender.com)
 
 Video link: <!-- link to the screen recording -->
 
-Team page login: user `team`, password: PlantTeam2026
+Team page login: user `team`, password: `plant-2026`
 
 Command that starts the help desk: `cd help-desk && npm install && PORT=3000 STORE_API_URL=http://localhost:4000 npm start`
 

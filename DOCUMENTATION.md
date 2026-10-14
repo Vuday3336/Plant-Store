@@ -32,11 +32,11 @@ Short answers to the task's own questions are in [ANSWERS.md](ANSWERS.md). This 
 
 | What | Link |
 | --- | --- |
-| Customer page | https://plant-help-desk.onrender.com |
-| Team page | https://plant-help-desk.onrender.com/team |
-| Health check | https://plant-help-desk.onrender.com/health (shows `{"ok":true}`) |
-| Store API | https://plant-store-api.onrender.com (needs the `x-api-key` header, see below) |
-| Store API emails list | `curl.exe -H "x-api-key: test-key" https://plant-store-api.onrender.com/emails` |
+| Customer page | https://plant-help-desk-yyhh.onrender.com |
+| Team page | https://plant-help-desk-yyhh.onrender.com/team |
+| Health check | https://plant-help-desk-yyhh.onrender.com/health (shows `{"ok":true}`) |
+| Store API | https://plant-store-api-yyhh.onrender.com (needs the `x-api-key` header, see below) |
+| Store API emails list | `curl.exe -H "x-api-key: test-key" https://plant-store-api-yyhh.onrender.com/emails` |
 | GitHub repository | https://github.com/Vuday3336/Plant-Store |
 | Render dashboard | https://dashboard.render.com (blueprint `plant-store`, services `plant-store-api` and `plant-help-desk`) |
 
@@ -61,7 +61,7 @@ The store API makes the same 60 orders every time it starts: `ORD-1001` to `ORD-
 | ORD-1002 | 9000010274 | meera.shah2@example.com |
 | ORD-1003 | 9000010411 | rohan.das3@example.com |
 
-To see all of them: `curl.exe -H "x-api-key: test-key" https://plant-store-api.onrender.com/orders`
+To see all of them: `curl.exe -H "x-api-key: test-key" https://plant-store-api-yyhh.onrender.com/orders`
 
 ---
 
@@ -318,7 +318,7 @@ Every store API call first inserts a row into the `store_calls` table, inside a 
 
 Try it from PowerShell:
 ```powershell
-curl.exe -H "content-type: application/json" -d '{\"order_number\":\"ORD-1001\",\"contact\":\"9000010137\"}' https://plant-help-desk.onrender.com/api/lookup
+curl.exe -H "content-type: application/json" -d '{\"order_number\":\"ORD-1001\",\"contact\":\"9000010137\"}' https://plant-help-desk-yyhh.onrender.com/api/lookup
 ```
 
 ### 6.7 Manual test checklist (local or live)
@@ -460,13 +460,13 @@ This is how the live site was set up.
    - Blueprint Name: `plant-store`
    - Branch: `main`
    - Blueprint Path: leave empty (uses `render.yaml`)
-   - `STORE_API_URL`: `https://plant-store-api.onrender.com`
+   - `STORE_API_URL`: `https://plant-store-api-yyhh.onrender.com`
    - `TEAM_PASSWORD`: a password of your choice (this is the live team password)
 4. **Click "Deploy Blueprint".** Render reads `render.yaml` and creates two free web services:
    - `plant-store-api`: runs `node store-api.js`
    - `plant-help-desk`: runs `node src/server.js`, health check `/health`
 5. **Wait until both show "Deployed" / "Live"** (a few minutes).
-6. **Check:** https://plant-help-desk.onrender.com/health shows `{"ok":true}`.
+6. **Check:** https://plant-help-desk-yyhh.onrender.com/health shows `{"ok":true}`.
 7. **If the store API got a different address** (e.g. `plant-store-api-xxxx.onrender.com`), open `plant-help-desk` → Environment → set `STORE_API_URL` to it → Save.
 
 **Free plan limits:**
@@ -511,7 +511,7 @@ Record these steps in order (Windows: **Win + Alt + R** starts and stops recordi
 2. **Wrong phone:** `ORD-1001` + `9999999999` → "could not find an order".
 3. **Report a problem:** correct phone, message "The clay pot arrived cracked" → Send → ticket number.
 4. **Team page:** log in, open the ticket, click Mark resolved.
-5. **Emails list:** `curl.exe -H "x-api-key: test-key" https://plant-store-api.onrender.com/emails` → exactly two emails, one confirmation and one resolved.
+5. **Emails list:** `curl.exe -H "x-api-key: test-key" https://plant-store-api-yyhh.onrender.com/emails` → exactly two emails, one confirmation and one resolved.
 6. **Store API stopped:**
    - Render → plant-store-api → Settings → **Suspend Web Service**.
    - On the customer page, look up `ORD-1002` + `9000010274` → "We cannot reach our order system right now… What you typed is still here".
