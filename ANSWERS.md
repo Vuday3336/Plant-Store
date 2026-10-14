@@ -16,11 +16,11 @@ Team page login: user `team`, password: `plant-2026`
 
 Command that starts the help desk: `cd help-desk && npm install && PORT=3000 STORE_API_URL=http://localhost:4000 npm start`
 
-Hours spent on part 1: <!-- fill in -->
+Hours spent on part 1: 12–18 hours
 
-Hours spent on part 2: <!-- fill in -->
+Hours spent on part 2: 4–6 hours
 
-Hours spent on part 3: <!-- fill in -->
+Hours spent on part 3: 6–10 hours (total about 22–34 hours)
 
 AI tools used: ChatGPT. The chats are in `ai/`.
 

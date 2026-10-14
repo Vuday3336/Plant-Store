@@ -541,7 +541,7 @@ Upload the video (YouTube unlisted, Google Drive or Loom) and put the link in AN
 
 ## 14. Submission checklist
 
-- [ ] ANSWERS.md top filled: Name, Live link (done), Video link, Team page login password, hours for each part
+- [ ] ANSWERS.md top filled: Name, Live link (done), Video link
 - [ ] Video recorded with the six steps in section 12, uploaded, and the link added
 - [ ] All tests pass (section 9)
 - [ ] Changes committed and pushed: `git commit -am "..."` then `git push`
